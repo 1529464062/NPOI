@@ -369,6 +369,7 @@ namespace NPOIHelp
             string loc_txt = "A1";
             if (set_lie <= 26)
             {
+             //测试下更改是否可行
                 loc_txt = Strings.Chr(64 + set_lie) + Conversion.Str(working_row);
 
             }
