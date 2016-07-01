@@ -217,10 +217,16 @@ namespace NPOIHelp
         private void sheetClear(string sheetName)
         {
             xlSheet = xlBook.GetSheet(sheetName);
-            for (int i = 0; i < xlSheet.LastRowNum; i++)
+            NPOI.SS.UserModel.IRow row = null;
+            for (int i = 0; i < xlSheet.LastRowNum+1; i++)
             {
-                NPOI.SS.UserModel.IRow row=xlSheet.GetRow(i);
-                xlSheet.RemoveRow(row);
+
+                if (xlSheet.GetRow(i) != null)
+                {
+                    row = xlSheet.GetRow(i);
+                    xlSheet.RemoveRow(row);
+                }                
+                
             }
         }
         #endregion
@@ -295,6 +301,7 @@ namespace NPOIHelp
                     System.IO.FileStream fs = new System.IO.FileStream(strFilename, System.IO.FileMode.Open);
                     xlBook = new HSSFWorkbook(fs);
                     xlBook.SetSheetName(0, sheetName);
+                    sheetClear(sheetName);
                 }
                 //在工作簿中以修改第一个工作表为指定工作表名
 
