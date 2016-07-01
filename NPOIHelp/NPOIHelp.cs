@@ -370,6 +370,7 @@ namespace NPOIHelp
             if (set_lie <= 26)
             {
              //测试下更改是否可行
+             //测试vs下提交是否可行
                 loc_txt = Strings.Chr(64 + set_lie) + Conversion.Str(working_row);
 
             }
