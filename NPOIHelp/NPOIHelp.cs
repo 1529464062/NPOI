@@ -55,8 +55,8 @@ namespace NPOIHelp
         /// <returns></returns>
         private bool setData(int rowIndex, int columnIndex, string value)
         {
-            //rowIndex--;
-            //columnIndex--;
+            rowIndex--;
+            columnIndex--;
             NPOI.SS.UserModel.IRow row = null;
             if (xlSheet.GetRow(rowIndex) != null)
             {
@@ -128,8 +128,8 @@ namespace NPOIHelp
         /// <returns>该单元格的内容</returns>
         private string getData(int rowIndex, int columnIndex)
         {
-            //rowIndex--;
-            //columnIndex--;
+            rowIndex--;
+            columnIndex--;
             if (xlSheet.LastRowNum >= rowIndex)
             {
                 NPOI.SS.UserModel.IRow row = null;
@@ -170,8 +170,8 @@ namespace NPOIHelp
         /// <param name="color">颜色</param>
         private void setAlarm(int rowIndex, int columnIndex)
         {
-            // rowIndex--;
-            //columnIndex--;
+            rowIndex--;
+            columnIndex--;
             NPOI.SS.UserModel.IRow row = null;
             NPOI.SS.UserModel.ICell cell = null;
             //if (xlSheet.LastRowNum >= rowIndex)
@@ -218,15 +218,13 @@ namespace NPOIHelp
         {
             xlSheet = xlBook.GetSheet(sheetName);
             NPOI.SS.UserModel.IRow row = null;
-            for (int i = 0; i < xlSheet.LastRowNum+1; i++)
+            for (int i = 0; i < xlSheet.LastRowNum + 1; i++)
             {
-
                 if (xlSheet.GetRow(i) != null)
                 {
                     row = xlSheet.GetRow(i);
                     xlSheet.RemoveRow(row);
-                }                
-                
+                }
             }
         }
         #endregion
